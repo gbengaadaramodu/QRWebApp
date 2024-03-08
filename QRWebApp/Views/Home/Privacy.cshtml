@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "QR Code List";
+}
+
+<div class="container">
+    <div class="row">
+        <h2>Recent QR Code</h2>
+        <div class="row">
+            @if (ViewBag.QRCode != null && ViewBag.QRCode.Count > 0)
+            {
+                foreach (var item in (List<QRProduct>)ViewBag.QRCode)
+                {
+                    <div class="col-4">
+                        <img src="https://localhost:7081/applicantdocuments/@item.PictureUrl" alt="qrcode image" height="150px" width="150px" />
+                    </div>
+                }
+            }
+            else
+            {
+                <span style="color:red">No QR Code to scan</span>
+            }
+        </div>
+    </div>
+</div>
